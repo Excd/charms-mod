@@ -27,42 +27,22 @@ import org.slf4j.Logger;
 /**
  * @author Greggory Seamon
  */
-@Mod(ExcdsMod.MODID)	// The value here should match an entry in the META-INF/mods.toml file.
+@Mod(ExcdsMod.MODID)
 public class ExcdsMod {
 	
-    // Define mod id in a common place for everything to reference.
-    public static final String MODID = "excdsmod";
-    // Directly reference a slf4j logger
-    private static final Logger LOGGER = LogUtils.getLogger();
+    public static final String MODID = "excdsmod";				// Mod id reference.
+    private static final Logger LOGGER = LogUtils.getLogger();	// slf4j logger reference.
 
     public ExcdsMod() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
-        // Register the commonSetup method for modloading.
-        modEventBus.addListener(this::commonSetup);
+        // Register the setup method for modloading.
+        modEventBus.addListener(this::setup);
     }
 
-    private void commonSetup(final FMLCommonSetupEvent event) {
-        // Some common setup code.
+    private void setup(final FMLCommonSetupEvent event) {
+    	// Some common setup code.
         LOGGER.info("HELLO FROM COMMON SETUP");
         LOGGER.info("DIRT BLOCK >> {}", ForgeRegistries.BLOCKS.getKey(Blocks.DIRT));
-    }
-
-    // You can use SubscribeEvent and let the Event Bus discover methods to call.
-    @SubscribeEvent
-    public void onServerStarting(ServerStartingEvent event) {
-        // Do something when the server starts
-        LOGGER.info("HELLO from server starting");
-    }
-
-    // You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent.
-    @Mod.EventBusSubscriber(modid = MODID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
-    public static class ClientModEvents {
-        @SubscribeEvent
-        public static void onClientSetup(FMLClientSetupEvent event) {
-            // Some client setup code.
-            LOGGER.info("HELLO FROM CLIENT SETUP");
-            LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
-        }
     }
 }
