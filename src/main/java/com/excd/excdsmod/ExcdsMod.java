@@ -1,5 +1,6 @@
 package com.excd.excdsmod;
 
+import com.excd.excdsmod.init.ModEffects;
 import com.excd.excdsmod.init.ModItems;
 import com.mojang.logging.LogUtils;
 import net.minecraftforge.common.MinecraftForge;
@@ -20,11 +21,12 @@ public final class ExcdsMod {
 
     public ExcdsMod() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
-        modEventBus.addListener(this::setup);		// Register setup method for modloading.
+        modEventBus.addListener(this::setup);			// Register setup method for modloading.
         
-        ModItems.ITEMS.register(modEventBus);		// Register items to mod event bus.
+        ModItems.ITEMS.register(modEventBus);			// Register items to mod event bus.
+        ModEffects.MOB_EFFECTS.register(modEventBus);	// Register mob effects to mod event bus.
 
-        MinecraftForge.EVENT_BUS.register(this);	// Register class to core Forge event bus.
+        MinecraftForge.EVENT_BUS.register(this);		// Register class to core Forge event bus.
     }
 
     private void setup(final FMLCommonSetupEvent event) {
