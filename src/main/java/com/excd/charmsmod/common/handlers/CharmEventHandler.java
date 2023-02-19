@@ -32,7 +32,7 @@ public final class CharmEventHandler {
 		Player player = event.player;
 		
 		if (player.getInventory().contains(new ItemStack(ModItems.WOODEN_CHARM.get()))) {
-			player.addEffect(new MobEffectInstance(ModEffects.CHARM_EFFECT.get()));
+			player.addEffect(new MobEffectInstance(ModEffects.CHARM_EFFECT.get(), 0, 0, false, false));
 		}
 	}
 }
