@@ -16,7 +16,7 @@ import net.minecraftforge.registries.RegistryObject;
  */
 // EventBusSubscriber automatically registers all static methods annotated with @SubscribeEvent.
 @Mod.EventBusSubscriber(modid = ExcdsMod.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
-public final class ItemInit {
+public final class ModItems {
 	
 	// Static reference to Item register.
 	public static final DeferredRegister<Item> ITEMS = 

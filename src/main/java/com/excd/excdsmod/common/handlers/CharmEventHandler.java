@@ -1,7 +1,7 @@
 package com.excd.excdsmod.common.handlers;
 
 import com.excd.excdsmod.ExcdsMod;
-import com.excd.excdsmod.init.ItemInit;
+import com.excd.excdsmod.init.ModItems;
 
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -20,7 +20,7 @@ public final class CharmEventHandler {
 	public static void itemPickup(PlayerEvent.ItemPickupEvent event) {
 		ItemStack itemStack = event.getStack();
 		
-		if (itemStack.getItem().equals(ItemInit.WOODEN_CHARM.get())) {
+		if (itemStack.getItem().equals(ModItems.WOODEN_CHARM.get())) {
 			ExcdsMod.LOGGER.info("Picked up: " + itemStack.getItem());
 		}
 	}
@@ -29,8 +29,8 @@ public final class CharmEventHandler {
 	public static void checkCharms(TickEvent.PlayerTickEvent event) {
 		Player player = event.player;
 		
-		if (player.getInventory().contains(new ItemStack(ItemInit.WOODEN_CHARM.get()))) {
-			System.out.println("Inventory contains: " + ItemInit.WOODEN_CHARM.get());
+		if (player.getInventory().contains(new ItemStack(ModItems.WOODEN_CHARM.get()))) {
+			System.out.println("Inventory contains: " + ModItems.WOODEN_CHARM.get());
 		}
 	}
 }
