@@ -2,8 +2,10 @@ package com.excd.excdsmod.init;
 
 import com.excd.excdsmod.ExcdsMod;
 
-import net.minecraft.world.item.CreativeModeTabs;
+import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.event.CreativeModeTabEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -30,10 +32,17 @@ public final class ModItems {
 	
 	// Add items to creative inventory tabs.
 	@SubscribeEvent
-	public static void buildContents(CreativeModeTabEvent.BuildContents event) {
-		// Add items to tools and utilities creative tab.
-		if (event.getTab() == CreativeModeTabs.TOOLS_AND_UTILITIES) {
-			event.accept(WOODEN_CHARM);
-		}
+	public static void buildContents(CreativeModeTabEvent.Register event) {
+		event.registerCreativeModeTab(new ResourceLocation(ExcdsMod.MODID, "charms"), builder ->
+			builder.title(Component.translatable("itemGroup." + ExcdsMod.MODID + ".charms"))
+			.icon(() -> new ItemStack(WOODEN_CHARM.get()))
+			.displayItems((enabledFlags, populator, hasPermissions) -> {
+				populator.accept(WOODEN_CHARM.get());
+			})
+		);
+//		// Add items to tools and utilities creative tab.
+//		if (event.getTab() == CreativeModeTabs.TOOLS_AND_UTILITIES) {
+//			event.accept(WOODEN_CHARM);
+//		}
 	}
 }
