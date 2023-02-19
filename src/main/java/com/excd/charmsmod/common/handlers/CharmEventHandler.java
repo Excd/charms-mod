@@ -1,8 +1,8 @@
-package com.excd.excdsmod.common.handlers;
+package com.excd.charmsmod.common.handlers;
 
-import com.excd.excdsmod.ExcdsMod;
-import com.excd.excdsmod.init.ModEffects;
-import com.excd.excdsmod.init.ModItems;
+import com.excd.charmsmod.CharmsMod;
+import com.excd.charmsmod.init.ModEffects;
+import com.excd.charmsmod.init.ModItems;
 
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.player.Player;
@@ -15,7 +15,7 @@ import net.minecraftforge.fml.common.Mod;
 /**
  * @author Greggory Seamon
  */
-@Mod.EventBusSubscriber(modid = ExcdsMod.MODID)
+@Mod.EventBusSubscriber(modid = CharmsMod.MODID)
 public final class CharmEventHandler {
 
 	@SubscribeEvent
@@ -23,7 +23,7 @@ public final class CharmEventHandler {
 		ItemStack itemStack = event.getStack();
 		
 		if (itemStack.getItem().equals(ModItems.WOODEN_CHARM.get())) {
-			ExcdsMod.LOGGER.info("Picked up: " + itemStack.getItem());
+			CharmsMod.LOGGER.info("Picked up: " + itemStack.getItem());
 		}
 	}
 	

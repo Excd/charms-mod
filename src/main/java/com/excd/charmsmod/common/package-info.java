@@ -1,4 +1,4 @@
 /**
  * @author Greggory Seamon
  */
-package com.excd.excdsmod.init;
+package com.excd.charmsmod.common;

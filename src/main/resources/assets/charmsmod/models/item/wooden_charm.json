@@ -1,6 +1,6 @@
 {
 	"parent": "item/generated",
 	"textures": {
-		"layer0": "excdsmod:item/wooden_charm"
+		"layer0": "charmsmod:item/wooden_charm"
 	}
 }

@@ -1,6 +1,6 @@
-package com.excd.excdsmod.init;
+package com.excd.charmsmod.init;
 
-import com.excd.excdsmod.ExcdsMod;
+import com.excd.charmsmod.CharmsMod;
 
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -17,12 +17,12 @@ import net.minecraftforge.registries.RegistryObject;
  * @author Greggory Seamon
  */
 // EventBusSubscriber automatically registers all static methods annotated with @SubscribeEvent.
-@Mod.EventBusSubscriber(modid = ExcdsMod.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
+@Mod.EventBusSubscriber(modid = CharmsMod.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public final class ModItems {
 	
 	// Static reference to Item register.
 	public static final DeferredRegister<Item> ITEMS = 
-			DeferredRegister.create(ForgeRegistries.ITEMS, ExcdsMod.MODID);
+			DeferredRegister.create(ForgeRegistries.ITEMS, CharmsMod.MODID);
 	
 	// Register item with name string and supplier object.
 	// Should be final/static and conventionally named in all upper-case with underscores.
@@ -33,8 +33,8 @@ public final class ModItems {
 	// Add items to creative inventory tabs.
 	@SubscribeEvent
 	public static void buildContents(CreativeModeTabEvent.Register event) {
-		event.registerCreativeModeTab(new ResourceLocation(ExcdsMod.MODID, "charms"), builder ->
-			builder.title(Component.translatable("itemGroup." + ExcdsMod.MODID + ".charms"))
+		event.registerCreativeModeTab(new ResourceLocation(CharmsMod.MODID, "charms"), builder ->
+			builder.title(Component.translatable("itemGroup." + CharmsMod.MODID + ".charms"))
 			.icon(() -> new ItemStack(WOODEN_CHARM.get()))
 			.displayItems((enabledFlags, populator, hasPermissions) -> {
 				populator.accept(WOODEN_CHARM.get());

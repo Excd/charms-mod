@@ -1,7 +1,7 @@
-package com.excd.excdsmod;
+package com.excd.charmsmod;
 
-import com.excd.excdsmod.init.ModEffects;
-import com.excd.excdsmod.init.ModItems;
+import com.excd.charmsmod.init.ModEffects;
+import com.excd.charmsmod.init.ModItems;
 import com.mojang.logging.LogUtils;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -13,13 +13,13 @@ import org.slf4j.Logger;
 /**
  * @author Greggory Seamon
  */
-@Mod(ExcdsMod.MODID)
-public final class ExcdsMod {
+@Mod(CharmsMod.MODID)
+public final class CharmsMod {
 
-    public static final String MODID = "excdsmod";				// Public mod id reference.
+    public static final String MODID = "charmsmod";				// Public mod id reference.
     public static final Logger LOGGER = LogUtils.getLogger();	// slf4j logger reference.
 
-    public ExcdsMod() {
+    public CharmsMod() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         modEventBus.addListener(this::setup);			// Register setup method for modloading.
         

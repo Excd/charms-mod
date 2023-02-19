@@ -6,8 +6,8 @@ plugins {
 
 // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 version = '0.0.0.1'
-group = 'com.excd.excdsmod'
-archivesBaseName = 'excdsmod'
+group = 'com.excd.charmsmod'
+archivesBaseName = 'charmsmod'
 
 // Target Java 17, Mojang ships it to end users in 1.18+.
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
@@ -50,10 +50,10 @@ minecraft {
             property 'forge.logging.console.level', 'debug'
 
             // Comma-separated list of namespaces to load gametests from. Empty = all namespaces.
-            property 'forge.enabledGameTestNamespaces', 'excdsmod'
+            property 'forge.enabledGameTestNamespaces', 'charmsmod'
 
             mods {
-                excdsmod {
+                charmsmod {
                     source sourceSets.main
                 }
             }
@@ -66,10 +66,10 @@ minecraft {
 
             property 'forge.logging.console.level', 'debug'
 
-            property 'forge.enabledGameTestNamespaces', 'excdsmod'
+            property 'forge.enabledGameTestNamespaces', 'charmsmod'
 
             mods {
-                excdsmod {
+                charmsmod {
                     source sourceSets.main
                 }
             }
@@ -85,10 +85,10 @@ minecraft {
 
             property 'forge.logging.console.level', 'debug'
 
-            property 'forge.enabledGameTestNamespaces', 'excdsmod'
+            property 'forge.enabledGameTestNamespaces', 'charmsmod'
 
             mods {
-                excdsmod {
+                charmsmod {
                     source sourceSets.main
                 }
             }
@@ -102,10 +102,10 @@ minecraft {
             property 'forge.logging.console.level', 'debug'
 
             // Specify the modid for data generation, where to output the resulting resource, and where to look for existing resources.
-            args '--mod', 'excdsmod', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
+            args '--mod', 'charmsmod', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
 
             mods {
-                excdsmod {
+                charmsmod {
                     source sourceSets.main
                 }
             }
@@ -147,12 +147,12 @@ dependencies {
 jar {
     manifest {
         attributes([
-                "Specification-Title"     : "excdsmod",
-                "Specification-Vendor"    : "excdsmodsareus",
+                "Specification-Title"     : "charmsmod",
+                "Specification-Vendor"    : "charmsmodsareus",
                 "Specification-Version"   : "1",	// We are version 1 of ourselves
                 "Implementation-Title"    : project.name,
                 "Implementation-Version"  : project.jar.archiveVersion,
-                "Implementation-Vendor"   : "excdsmodsareus",
+                "Implementation-Vendor"   : "charmsmodsareus",
                 "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
         ])
     }
