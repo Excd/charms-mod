@@ -19,7 +19,7 @@ import net.minecraftforge.fml.common.Mod;
 public final class CharmEventHandler {
 
 	@SubscribeEvent
-	public static void itemPickup(PlayerEvent.ItemPickupEvent event) {
+	public static void charmPickup(PlayerEvent.ItemPickupEvent event) {
 		ItemStack itemStack = event.getStack();
 		
 		if (itemStack.getItem().equals(ModItems.WOODEN_CHARM.get())) {
