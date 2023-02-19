@@ -21,7 +21,7 @@ public class ExcdsMod {
 
     public ExcdsMod() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
-        modEventBus.addListener(this::setup);		// Register the setup method for modloading.
+        modEventBus.addListener(this::setup);		// Register setup method for modloading.
         
         ItemInit.ITEMS.register(modEventBus);		// Register items to mod event bus.
 

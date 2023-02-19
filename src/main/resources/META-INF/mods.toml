@@ -3,6 +3,7 @@
 # The overall format is standard TOML format, v0.5.0.
 # Note that there are a couple of TOML lists in this file.
 # Find more information on toml format here:  https://github.com/toml-lang/toml
+
 # The name of the mod loader type to load - for regular FML @Mod mods it should be javafml
 modLoader="javafml" #mandatory
 # A version range to match for said mod loader - for regular FML @Mod it will be the forge version
@@ -39,12 +40,12 @@ authors="excd" #optional
 # NONE means that no display test is set on your mod. You need to do this yourself, see IExtensionPoint.DisplayTest for more information. You can define any scheme you wish with this value.
 # IMPORTANT NOTE: this is NOT an instruction as to which environments (CLIENT or DEDICATED SERVER) your mod loads on. Your mod should load (and maybe do nothing!) whereever it finds itself.
 #displayTest="MATCH_VERSION" # MATCH_VERSION is the default if nothing is specified (#optional)
-
 # The description text for the mod (multi line!) (#mandatory)
 description='''
 Temporary sample description for excd's mod.
 '''
-# A dependency - use the . to indicate dependency for a specific modid. Dependencies are optional.
+
+# Dependencies - use the . to indicate dependency for a specific modid. Dependencies are optional.
 [[dependencies.excdsmod]] #optional
     # the modid of the dependency
     modId="forge" #mandatory
@@ -56,11 +57,10 @@ Temporary sample description for excd's mod.
     ordering="NONE"
     # Side this dependency is applied on - BOTH, CLIENT or SERVER
     side="BOTH"
-# Here's another dependency
 [[dependencies.excdsmod]]
     modId="minecraft"
     mandatory=true
-# This version range declares a minimum of the current minecraft version up to but not including the next major version
+	# This version range declares a minimum of the current minecraft version up to but not including the next major version
     versionRange="[1.19.3,1.20)"
     ordering="NONE"
     side="BOTH"

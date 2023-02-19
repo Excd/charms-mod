@@ -24,7 +24,7 @@ public final class ItemInit {
 	
 	// Register item with name string and supplier object.
 	// Should be final/static and conventionally named in all upper-case with underscores.
-	// String name should be lower-case with underscores.
+	// Name string should be lower-case with underscores.
 	public static final RegistryObject<Item> SMALL_CHARM = ITEMS.register("small_charm",
 			() -> new Item(new Item.Properties()));
 	
