@@ -13,11 +13,10 @@ import org.slf4j.Logger;
  * @author Greggory Seamon
  */
 @Mod(ExcdsMod.MODID)
-public class ExcdsMod {
+public final class ExcdsMod {
 
     public static final String MODID = "excdsmod";				// Public mod id reference.
-
-    private static final Logger LOGGER = LogUtils.getLogger();	// slf4j logger reference.
+    public static final Logger LOGGER = LogUtils.getLogger();	// slf4j logger reference.
 
     public ExcdsMod() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
