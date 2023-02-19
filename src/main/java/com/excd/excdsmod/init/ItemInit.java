@@ -6,6 +6,7 @@ import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.event.CreativeModeTabEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
@@ -13,6 +14,8 @@ import net.minecraftforge.registries.RegistryObject;
 /**
  * @author Greggory Seamon
  */
+// EventBusSubscriber automatically registers all static methods annotated with @SubscribeEvent.
+@Mod.EventBusSubscriber(modid = ExcdsMod.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public final class ItemInit {
 	
 	// Static reference to Item register.

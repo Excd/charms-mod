@@ -24,8 +24,6 @@ public class ExcdsMod {
         modEventBus.addListener(this::setup);		// Register the setup method for modloading.
         
         ItemInit.ITEMS.register(modEventBus);		// Register items to mod event bus.
-        
-        modEventBus.register(ItemInit.class);		// Register ItemInit class to mod event bus.
 
         MinecraftForge.EVENT_BUS.register(this);	// Register class to core Forge event bus.
     }
