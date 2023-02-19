@@ -1,8 +1,8 @@
 package com.excd.charmsmod.init;
 
 import com.excd.charmsmod.CharmsMod;
+import com.excd.charmsmod.common.effects.CharmMobEffect;
 
-import net.minecraft.world.effect.InstantenousMobEffect;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraftforge.fml.common.Mod;
@@ -20,5 +20,5 @@ public final class ModEffects {
 			DeferredRegister.create(ForgeRegistries.MOB_EFFECTS, CharmsMod.MODID);
 	
 	public static final RegistryObject<MobEffect> CHARM_EFFECT = MOB_EFFECTS.register("charm_effect",
-			() -> new InstantenousMobEffect(MobEffectCategory.BENEFICIAL, 16262179));
+			() -> new CharmMobEffect(MobEffectCategory.BENEFICIAL, 16262179));
 }
