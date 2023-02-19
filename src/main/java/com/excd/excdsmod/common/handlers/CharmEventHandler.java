@@ -14,7 +14,7 @@ import net.minecraftforge.fml.common.Mod;
  * @author Greggory Seamon
  */
 @Mod.EventBusSubscriber(modid = ExcdsMod.MODID)
-public final class ItemPickupEventHandler {
+public final class CharmEventHandler {
 
 	@SubscribeEvent
 	public static void itemPickup(PlayerEvent.ItemPickupEvent event) {
