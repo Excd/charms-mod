@@ -1,8 +1,10 @@
 package com.excd.excdsmod.common.handlers;
 
 import com.excd.excdsmod.ExcdsMod;
+import com.excd.excdsmod.init.ModEffects;
 import com.excd.excdsmod.init.ModItems;
 
+import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.event.TickEvent;
@@ -30,7 +32,7 @@ public final class CharmEventHandler {
 		Player player = event.player;
 		
 		if (player.getInventory().contains(new ItemStack(ModItems.WOODEN_CHARM.get()))) {
-			System.out.println("Inventory contains: " + ModItems.WOODEN_CHARM.get());
+			player.addEffect(new MobEffectInstance(ModEffects.CHARM_EFFECT.get(), 100));
 		}
 	}
 }
