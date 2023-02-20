@@ -1,6 +1,7 @@
 package com.excd.charmsmod.init;
 
 import com.excd.charmsmod.CharmsMod;
+import com.excd.charmsmod.common.items.WoodenCharmItem;
 
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -28,7 +29,7 @@ public final class ModItems {
 	// Should be final/static and conventionally named in all upper-case with underscores.
 	// Name string should be lower-case with underscores.
 	public static final RegistryObject<Item> WOODEN_CHARM = ITEMS.register("wooden_charm",
-			() -> new Item(new Item.Properties()));
+			() -> new WoodenCharmItem(new Item.Properties()));
 	
 	// Add items to creative inventory tabs.
 	@SubscribeEvent
