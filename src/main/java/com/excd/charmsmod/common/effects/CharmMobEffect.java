@@ -1,35 +1,62 @@
 package com.excd.charmsmod.common.effects;
 
+import java.util.ArrayList;
+
+import com.excd.charmsmod.CharmsMod;
+import com.excd.charmsmod.common.items.CharmItem;
+
 import net.minecraft.world.effect.InstantenousMobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
-import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
-import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.TickEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
 
 /**
  * @author Greggory Seamon
  */
+@Mod.EventBusSubscriber(modid = CharmsMod.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class CharmMobEffect extends InstantenousMobEffect {
 	
-	private boolean isEffectApplied = false;
+	public ArrayList<AttributeModifier> activeModifiers = new ArrayList<>();
 	
 	/**
-	 * @param p_19451_
-	 * @param p_19452_
+	 * @param mobEffectCategory
+	 * @param color
 	 */
-	public CharmMobEffect(MobEffectCategory p_19451_, int p_19452_) {
-		super(p_19451_, p_19452_);
+	public CharmMobEffect(MobEffectCategory mobEffectCategory, int color) {
+		super(mobEffectCategory, color);
+		MinecraftForge.EVENT_BUS.register(this);
 	}
 	
-	@Override
-	public void applyEffectTick(LivingEntity p_19467_, int p_19468_) {
+	@SubscribeEvent
+	public void evaluateCharms(TickEvent.PlayerTickEvent event) {
+		Player player = event.player;
 		
-		if (!isEffectApplied) {
-			p_19467_.getAttribute(Attributes.MAX_HEALTH).addTransientModifier(
-					new AttributeModifier("MaxHealth", 1.0f, AttributeModifier.Operation.ADDITION));
+		if (player.getInventory().items.stream().anyMatch(
+				itemStack -> itemStack.getItem() instanceof CharmItem)) {
 			
-			isEffectApplied = true;
-			System.out.println("Player Max Health: " + p_19467_.getMaxHealth());
+			for (ItemStack itemStack : player.getInventory().items) {
+				
+				if (itemStack.getItem() instanceof CharmItem) {
+					activeModifiers.add(((CharmItem)itemStack.getItem()).applyModifier(player));
+				}
+			}
 		}
 	}
+	
+//	@Override
+//	public void applyEffectTick(LivingEntity livingEntity, int p_19468_) {
+//			
+//		Player player = (Player)livingEntity;
+//		
+//		for (ItemStack itemStack : player.getInventory().items) {
+//			
+//			if (itemStack.getItem() instanceof CharmItem)
+//				((CharmItem)itemStack.getItem()).applyModifier(player);
+//		}
+//	}
 }
