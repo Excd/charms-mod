@@ -21,8 +21,9 @@ import net.minecraftforge.fml.common.Mod;
 @Mod.EventBusSubscriber(modid = CharmsMod.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class CharmMobEffect extends InstantenousMobEffect {
 	
-	public ArrayList<AttributeModifier> activeModifiers = new ArrayList<>();
-	
+	public ArrayList<CharmItem> CHARMS = new ArrayList<>();
+	//public ArrayList<AttributeModifier> activeModifiers = new ArrayList<>();
+
 	/**
 	 * @param mobEffectCategory
 	 * @param color
@@ -42,7 +43,7 @@ public class CharmMobEffect extends InstantenousMobEffect {
 			for (ItemStack itemStack : player.getInventory().items) {
 				
 				if (itemStack.getItem() instanceof CharmItem) {
-					activeModifiers.add(((CharmItem)itemStack.getItem()).applyModifier(player));
+					CHARMS.add(((CharmItem)itemStack.getItem()).applyModifier(player));
 				}
 			}
 		}

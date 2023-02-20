@@ -17,7 +17,7 @@ public class CharmItem extends Item {
 	/**
 	 * @param itemProperties
 	 */
-	public CharmItem(Item.Properties itemProperties) {
+	protected CharmItem(Item.Properties itemProperties) {
 		super(itemProperties);
 		setHealthModifier(1.0f);
 		setAttributeModifier(new AttributeModifier("MaxHealthModifier", 
@@ -25,7 +25,7 @@ public class CharmItem extends Item {
 				AttributeModifier.Operation.ADDITION));
 	}
 
-	public AttributeModifier applyModifier(Player player) {
+	public CharmItem applyModifier(Player player) {
 		
 		if (!isModifierApplied()) {
 			setModifierApplied(true);
@@ -36,12 +36,20 @@ public class CharmItem extends Item {
 			}
 		}
 		
-		return getAttributeModifier();
+		return this;
 	}
 	
-//	public void removeModifier(Player player) {
-//		
-//	}
+	public void removeModifier(Player player) {
+		
+		if (isModifierApplied()) {
+			setModifierApplied(false);
+			
+			if (player.getAttribute(Attributes.MAX_HEALTH).hasModifier(getAttributeModifier())) {
+				player.getAttribute(Attributes.MAX_HEALTH).removeModifier(getAttributeModifier());
+				System.out.println("Player Max Health: " + player.getMaxHealth());
+			}
+		}
+	}
 	
 	public float getHealthModifier() {
 		return healthModifier;
