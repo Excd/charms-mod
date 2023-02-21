@@ -2,7 +2,6 @@ package com.excd.charmsmod.common.effects;
 
 import java.util.UUID;
 
-import com.excd.charmsmod.CharmsMod;
 import com.excd.charmsmod.common.items.CharmItem;
 
 import net.minecraft.util.Mth;
@@ -14,15 +13,10 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.TickEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.LogicalSide;
-import net.minecraftforge.fml.common.Mod;
 
 /**
  * @author Greggory Seamon
  */
-@Mod.EventBusSubscriber(modid = CharmsMod.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class CharmMobEffect extends MobEffect {
 
 	private float totalHealthModifier;
@@ -42,29 +36,24 @@ public class CharmMobEffect extends MobEffect {
 		MinecraftForge.EVENT_BUS.register(this);
 	}
 	
-	@SubscribeEvent
-	public void evaluateCharms(TickEvent.PlayerTickEvent event) {
+	public void evaluateCharms(Player player) {
+			
+		setTotalHealthModifier(0.0f);
 		
-		if (event.side == LogicalSide.SERVER) {
-			Player player = event.player;
+		for (ItemStack itemStack : player.getInventory().items) {
 			
-			setTotalHealthModifier(0.0f);
-			
-			for (ItemStack itemStack : player.getInventory().items) {
+			if (itemStack.getItem() instanceof CharmItem) {
 				
-				if (itemStack.getItem() instanceof CharmItem) {
-					
-					setTotalHealthModifier(getTotalHealthModifier() +
-							((CharmItem)itemStack.getItem()).getHealthModifier());
-				}
+				setTotalHealthModifier(getTotalHealthModifier() +
+						((CharmItem)itemStack.getItem()).getHealthModifier());
 			}
+		}
+		
+		if (getAttributeModifier().getAmount() != getTotalHealthModifier()) {
+			setAttributeModifier(newAttributeModifier());
 			
-			if (getAttributeModifier().getAmount() != getTotalHealthModifier()) {
-				setAttributeModifier(newAttributeModifier());
-				
-				updateModifier(player);
-				System.out.println("---Player Max Health: " + player.getMaxHealth());
-			}
+			updateModifier(player);
+			System.out.println("---Player Max Health: " + player.getMaxHealth());
 		}
 	}
 	
