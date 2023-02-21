@@ -11,7 +11,6 @@ public class WoodenCharmItem extends CharmItem {
 	 * @param itemProperties
 	 */
 	public WoodenCharmItem(Item.Properties itemProperties) {
-		super(itemProperties);
-		setHealthModifier(1.0f);
+		super(itemProperties, 1.0f);
 	}
 }

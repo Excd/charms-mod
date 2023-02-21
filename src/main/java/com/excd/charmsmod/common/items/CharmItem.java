@@ -13,9 +13,9 @@ public class CharmItem extends Item {
 	/**
 	 * @param itemProperties
 	 */
-	protected CharmItem(Item.Properties itemProperties) {
+	protected CharmItem(Item.Properties itemProperties, float healthModifier) {
 		super(itemProperties);
-		setHealthModifier(0.0f);
+		this.healthModifier = healthModifier;
 	}
 
 	public float getHealthModifier() {
