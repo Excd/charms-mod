@@ -35,11 +35,9 @@ public class CharmMobEffect extends MobEffect {
 	 */
 	public CharmMobEffect(MobEffectCategory mobEffectCategory, int color) {
 		super(mobEffectCategory, color);
-		
-		setTotalHealthModifier(0.0f);
-		
-		attributeModifierId = Mth.createInsecureUUID(RandomSource.createNewThreadLocalInstance());
-		setAttributeModifier(newAttributeModifier());
+		this.totalHealthModifier = 1.0f;
+		this.attributeModifierId = Mth.createInsecureUUID(RandomSource.createNewThreadLocalInstance());
+		this.attributeModifier = newAttributeModifier();
 		
 		MinecraftForge.EVENT_BUS.register(this);
 	}
