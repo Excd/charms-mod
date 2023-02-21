@@ -23,7 +23,7 @@ public final class CharmEventHandler {
 		ItemStack itemStack = event.getStack();
 		
 		if (itemStack.getItem().equals(ModItems.WOODEN_CHARM.get())) {
-			CharmsMod.LOGGER.info("Picked up: " + itemStack.getItem());
+			System.out.println("Picked up: " + itemStack.getItem());
 		}
 	}
 	
