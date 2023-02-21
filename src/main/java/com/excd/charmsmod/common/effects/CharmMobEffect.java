@@ -39,11 +39,7 @@ public class CharmMobEffect extends MobEffect {
 		setTotalHealthModifier(0.0f);
 		
 		attributeModifierId = Mth.createInsecureUUID(RandomSource.createNewThreadLocalInstance());
-		setAttributeModifier(new AttributeModifier(
-				this.attributeModifierId,
-				"MaxHealthModifier",
-				getTotalHealthModifier(),
-				AttributeModifier.Operation.ADDITION));
+		setAttributeModifier(newAttributeModifier());
 		
 		MinecraftForge.EVENT_BUS.register(this);
 	}
@@ -66,11 +62,7 @@ public class CharmMobEffect extends MobEffect {
 			}
 			
 			if (getAttributeModifier().getAmount() != getTotalHealthModifier()) {
-				setAttributeModifier(new AttributeModifier(
-						getAttributeModifierId(),
-						"MaxHealthModifier",
-						getTotalHealthModifier(),
-						AttributeModifier.Operation.ADDITION));
+				setAttributeModifier(newAttributeModifier());
 				
 				updateModifier(player);
 				System.out.println(" : Player Max Health: " + player.getMaxHealth());
@@ -103,6 +95,14 @@ public class CharmMobEffect extends MobEffect {
 		}
 	}
 
+	private AttributeModifier newAttributeModifier() {
+		return new AttributeModifier(
+				getAttributeModifierId(),
+				"MaxHealthModifier",
+				getTotalHealthModifier(),
+				AttributeModifier.Operation.ADDITION);
+	}
+	
 	public float getTotalHealthModifier() {
 		return totalHealthModifier;
 	}
