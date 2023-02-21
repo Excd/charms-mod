@@ -63,7 +63,7 @@ public class CharmMobEffect extends MobEffect {
 				setAttributeModifier(newAttributeModifier());
 				
 				updateModifier(player);
-				System.out.println(" : Player Max Health: " + player.getMaxHealth());
+				System.out.println("---Player Max Health: " + player.getMaxHealth());
 			}
 		}
 	}
@@ -79,8 +79,6 @@ public class CharmMobEffect extends MobEffect {
 
 	private void applyModifier(Player player) {
 		player.getAttribute(Attributes.MAX_HEALTH).addTransientModifier(getAttributeModifier());
-		
-		System.out.println("Modifier added!");
 	}
 	
 	private void removeModifier(Player player) {
@@ -88,8 +86,6 @@ public class CharmMobEffect extends MobEffect {
 		
 		if (player.getHealth() >= player.getMaxHealth()) {
 			player.setHealth(player.getMaxHealth());
-			
-			System.out.println("Modifier removed!");
 		}
 	}
 
