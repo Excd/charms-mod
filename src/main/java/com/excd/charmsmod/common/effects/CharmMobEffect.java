@@ -7,7 +7,7 @@ import com.excd.charmsmod.common.items.CharmItem;
 
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.effect.InstantenousMobEffect;
+import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
@@ -23,7 +23,7 @@ import net.minecraftforge.fml.common.Mod;
  * @author Greggory Seamon
  */
 @Mod.EventBusSubscriber(modid = CharmsMod.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
-public class CharmMobEffect extends InstantenousMobEffect {
+public class CharmMobEffect extends MobEffect {
 
 	private float totalHealthModifier;
 	private AttributeModifier attributeModifier;
@@ -73,6 +73,7 @@ public class CharmMobEffect extends InstantenousMobEffect {
 						AttributeModifier.Operation.ADDITION));
 				
 				updateModifier(player);
+				System.out.println(" : Player Max Health: " + player.getMaxHealth());
 			}
 		}
 	}
@@ -89,7 +90,7 @@ public class CharmMobEffect extends InstantenousMobEffect {
 	private void applyModifier(Player player) {
 		player.getAttribute(Attributes.MAX_HEALTH).addTransientModifier(getAttributeModifier());
 		
-		System.out.println("Modifier added!\nPlayer Max Health: " + player.getMaxHealth());
+		System.out.println("Modifier added!");
 	}
 	
 	private void removeModifier(Player player) {
@@ -97,9 +98,9 @@ public class CharmMobEffect extends InstantenousMobEffect {
 		
 		if (player.getHealth() >= player.getMaxHealth()) {
 			player.setHealth(player.getMaxHealth());
+			
+			System.out.println("Modifier removed!");
 		}
-		
-		System.out.println("Modifier removed!\nPlayer Max Health: " + player.getMaxHealth());
 	}
 
 	public float getTotalHealthModifier() {
