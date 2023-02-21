@@ -7,7 +7,6 @@ import net.minecraft.world.item.Item;
  */
 public class CharmItem extends Item {
 
-	private boolean modifierApplied;
 	private float healthModifier;
 
 	/**
@@ -24,13 +23,5 @@ public class CharmItem extends Item {
 
 	public void setHealthModifier(float healthModifier) {
 		this.healthModifier = healthModifier;
-	}
-
-	public boolean isModifierApplied() {
-		return modifierApplied;
-	}
-
-	public void setModifierApplied(boolean modifierApplied) {
-		this.modifierApplied = modifierApplied;
 	}
 }
