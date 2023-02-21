@@ -31,6 +31,6 @@ public final class CharmsMod {
 
     private void setup(final FMLCommonSetupEvent event) {
     	// Setup code.
-        LOGGER.info("HELLO WORLD!");
+        LOGGER.info("Charms Mod Setup!");
     }
 }
