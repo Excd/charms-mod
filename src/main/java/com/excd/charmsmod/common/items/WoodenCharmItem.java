@@ -5,9 +5,13 @@ import net.minecraft.world.item.Item;
 /**
  * @author Greggory Seamon
  */
-public final class WoodenCharmItem extends Item {
+public class WoodenCharmItem extends CharmItem {
 
-	public WoodenCharmItem(Properties properties) {
-		super(properties);
+	/**
+	 * @param itemProperties
+	 */
+	public WoodenCharmItem(Item.Properties itemProperties) {
+		super(itemProperties);
+		setHealthModifier(1.0f);
 	}
 }
