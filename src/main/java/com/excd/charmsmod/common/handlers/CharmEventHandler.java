@@ -1,6 +1,7 @@
 package com.excd.charmsmod.common.handlers;
 
 import com.excd.charmsmod.CharmsMod;
+import com.excd.charmsmod.common.effects.CharmMobEffect;
 import com.excd.charmsmod.common.items.CharmItem;
 import com.excd.charmsmod.init.ModEffects;
 import com.excd.charmsmod.init.ModItems;
@@ -20,6 +21,8 @@ import net.minecraftforge.fml.common.Mod;
 @Mod.EventBusSubscriber(modid = CharmsMod.MODID)
 public final class CharmEventHandler {
 	
+	private static MobEffectInstance charmEffectInstance;
+	
 	@SubscribeEvent
 	public static void charmPickup(PlayerEvent.ItemPickupEvent event) {
 		ItemStack itemStack = event.getStack();
@@ -37,8 +40,14 @@ public final class CharmEventHandler {
 			
 			if (player.getInventory().items.stream().anyMatch(
 					itemStack -> itemStack.getItem() instanceof CharmItem)) {
-				player.addEffect(new MobEffectInstance(ModEffects.CHARM_EFFECT.get(), 1, 0, false, false));
+				
+				if (charmEffectInstance == null)
+					charmEffectInstance = new MobEffectInstance(ModEffects.CHARM_EFFECT.get(), 10, 0, false, false);
+				
+				player.addEffect(charmEffectInstance);
 			}
+		
+			((CharmMobEffect)charmEffectInstance.getEffect()).evaluateCharms(player);
 		}
 	}
 }
