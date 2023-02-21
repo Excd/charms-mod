@@ -18,9 +18,9 @@ import net.minecraft.world.item.ItemStack;
  */
 public class CharmMobEffect extends MobEffect {
 
+	private final UUID attributeModifierId;
 	private float totalHealthModifier;
 	private AttributeModifier attributeModifier;
-	private final UUID attributeModifierId;
 	
 	/**
 	 * @param mobEffectCategory
@@ -28,8 +28,8 @@ public class CharmMobEffect extends MobEffect {
 	 */
 	public CharmMobEffect(MobEffectCategory mobEffectCategory, int color) {
 		super(mobEffectCategory, color);
-		this.totalHealthModifier = 1.0f;
 		this.attributeModifierId = Mth.createInsecureUUID(RandomSource.createNewThreadLocalInstance());
+		this.totalHealthModifier = 1.0f;
 		this.attributeModifier = newAttributeModifier();
 	}
 	
