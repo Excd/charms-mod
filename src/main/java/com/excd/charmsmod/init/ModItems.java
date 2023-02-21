@@ -29,7 +29,7 @@ public final class ModItems {
 	// Should be final/static and conventionally named in all upper-case with underscores.
 	// Name string should be lower-case with underscores.
 	public static final RegistryObject<Item> WOODEN_CHARM = ITEMS.register("wooden_charm",
-			() -> new WoodenCharmItem(new Item.Properties()));
+			() -> new WoodenCharmItem(new Item.Properties().stacksTo(1)));
 	
 	// Add items to creative inventory tabs.
 	@SubscribeEvent
