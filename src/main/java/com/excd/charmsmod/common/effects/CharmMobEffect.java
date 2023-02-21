@@ -12,7 +12,6 @@ import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
-import net.minecraftforge.common.MinecraftForge;
 
 /**
  * @author Greggory Seamon
@@ -32,8 +31,6 @@ public class CharmMobEffect extends MobEffect {
 		this.totalHealthModifier = 1.0f;
 		this.attributeModifierId = Mth.createInsecureUUID(RandomSource.createNewThreadLocalInstance());
 		this.attributeModifier = newAttributeModifier();
-		
-		MinecraftForge.EVENT_BUS.register(this);
 	}
 	
 	public void evaluateCharms(Player player) {
