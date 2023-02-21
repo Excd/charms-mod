@@ -17,7 +17,8 @@ import org.slf4j.Logger;
 public final class CharmsMod {
 
     public static final String MODID = "charmsmod";				// Public mod id reference.
-    public static final Logger LOGGER = LogUtils.getLogger();	// slf4j logger reference.
+    
+    private static final Logger LOGGER = LogUtils.getLogger();	// slf4j logger reference.
 
     public CharmsMod() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
