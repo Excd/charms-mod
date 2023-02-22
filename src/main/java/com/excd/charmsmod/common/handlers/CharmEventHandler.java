@@ -46,8 +46,20 @@ public final class CharmEventHandler {
 				
 				player.addEffect(charmEffectInstance);
 			}
-		
-			((CharmMobEffect)charmEffectInstance.getEffect()).evaluateCharms(player);
+			else {
+				
+				if (player.hasEffect(ModEffects.CHARM_EFFECT.get())) {
+					player.removeEffect(ModEffects.CHARM_EFFECT.get());
+					updateCharmEffect(player);
+				}
+			}
+			
+			if (player.hasEffect(ModEffects.CHARM_EFFECT.get())) 
+				updateCharmEffect(player);
 		}
+	}
+	
+	private static void updateCharmEffect(Player player) {
+		((CharmMobEffect)charmEffectInstance.getEffect()).evaluateCharms(player);
 	}
 }
