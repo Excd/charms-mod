@@ -6,8 +6,6 @@ import com.excd.charmsmod.common.items.CharmItem;
 
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.effect.MobEffect;
-import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
@@ -16,20 +14,15 @@ import net.minecraft.world.item.ItemStack;
 /**
  * @author Greggory Seamon
  */
-public class CharmMobEffect extends MobEffect {
+public class CharmEffect {
 
 	private final UUID attributeModifierId;
 	private float totalHealthModifier;
 	private AttributeModifier attributeModifier;
 	
-	/**
-	 * @param mobEffectCategory
-	 * @param color
-	 */
-	public CharmMobEffect(MobEffectCategory mobEffectCategory, int color) {
-		super(mobEffectCategory, color);
+	public CharmEffect() {
 		this.attributeModifierId = Mth.createInsecureUUID(RandomSource.createNewThreadLocalInstance());
-		this.totalHealthModifier = 1.0f;
+		this.totalHealthModifier = 0.0f;
 		this.attributeModifier = newAttributeModifier();
 	}
 	

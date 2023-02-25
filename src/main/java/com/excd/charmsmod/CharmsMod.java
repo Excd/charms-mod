@@ -1,6 +1,5 @@
 package com.excd.charmsmod;
 
-import com.excd.charmsmod.init.ModEffects;
 import com.excd.charmsmod.init.ModItems;
 import com.mojang.logging.LogUtils;
 import net.minecraftforge.common.MinecraftForge;
@@ -25,7 +24,6 @@ public final class CharmsMod {
         modEventBus.addListener(this::setup);			// Register setup method for modloading.
         
         ModItems.ITEMS.register(modEventBus);			// Register items to mod event bus.
-        ModEffects.MOB_EFFECTS.register(modEventBus);	// Register mob effects to mod event bus.
 
         MinecraftForge.EVENT_BUS.register(this);		// Register class to core Forge event bus.
     }

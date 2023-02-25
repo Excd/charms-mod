@@ -1,12 +1,10 @@
 package com.excd.charmsmod.common.handlers;
 
 import com.excd.charmsmod.CharmsMod;
-import com.excd.charmsmod.common.effects.CharmMobEffect;
+import com.excd.charmsmod.common.effects.CharmEffect;
 import com.excd.charmsmod.common.items.CharmItem;
-import com.excd.charmsmod.init.ModEffects;
 import com.excd.charmsmod.init.ModItems;
 
-import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.event.TickEvent;
@@ -21,7 +19,7 @@ import net.minecraftforge.fml.common.Mod;
 @Mod.EventBusSubscriber(modid = CharmsMod.MODID)
 public final class CharmEventHandler {
 	
-	private static MobEffectInstance charmEffectInstance;
+	private static CharmEffect charmEffectInstance;
 	
 	@SubscribeEvent
 	public static void charmPickup(PlayerEvent.ItemPickupEvent event) {
@@ -42,24 +40,18 @@ public final class CharmEventHandler {
 					itemStack -> itemStack.getItem() instanceof CharmItem)) {
 				
 				if (charmEffectInstance == null)
-					charmEffectInstance = new MobEffectInstance(ModEffects.CHARM_EFFECT.get(), 10, 0, false, false);
-				
-				player.addEffect(charmEffectInstance);
+					charmEffectInstance = new CharmEffect();
 			}
 			else {
 				
-				if (player.hasEffect(ModEffects.CHARM_EFFECT.get())) {
-					player.removeEffect(ModEffects.CHARM_EFFECT.get());
-					updateCharmEffect(player);
+				if (charmEffectInstance != null)  {
+					charmEffectInstance.evaluateCharms(player);
+					charmEffectInstance = null;
 				}
 			}
 			
-			if (player.hasEffect(ModEffects.CHARM_EFFECT.get())) 
-				updateCharmEffect(player);
+			if (charmEffectInstance != null) 
+				charmEffectInstance.evaluateCharms(player);
 		}
-	}
-	
-	private static void updateCharmEffect(Player player) {
-		((CharmMobEffect)charmEffectInstance.getEffect()).evaluateCharms(player);
 	}
 }
