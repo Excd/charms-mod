@@ -41,9 +41,5 @@ public final class ModItems {
 				populator.accept(WOODEN_CHARM.get());
 			})
 		);
-//		// Add items to tools and utilities creative tab.
-//		if (event.getTab() == CreativeModeTabs.TOOLS_AND_UTILITIES) {
-//			event.accept(WOODEN_CHARM);
-//		}
 	}
 }
