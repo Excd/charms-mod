@@ -1,8 +1,8 @@
-package com.excd.charmsmod.common.handlers;
+package com.excd.charmsmod.common.handler;
 
 import com.excd.charmsmod.CharmsMod;
-import com.excd.charmsmod.common.effects.CharmEffect;
-import com.excd.charmsmod.common.items.CharmItem;
+import com.excd.charmsmod.common.effect.CharmEffect;
+import com.excd.charmsmod.common.item.CharmItem;
 import com.excd.charmsmod.init.ModItems;
 
 import net.minecraft.world.entity.player.Player;

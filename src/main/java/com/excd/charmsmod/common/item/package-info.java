@@ -1,4 +1,4 @@
 /**
  * @author Greggory Seamon
  */
-package com.excd.charmsmod.common.items;
+package com.excd.charmsmod.common.item;

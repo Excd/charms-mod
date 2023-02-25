@@ -1,4 +1,4 @@
-package com.excd.charmsmod.common.items;
+package com.excd.charmsmod.common.item;
 
 import net.minecraft.world.item.Item;
 

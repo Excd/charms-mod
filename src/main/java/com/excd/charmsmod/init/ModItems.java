@@ -1,7 +1,7 @@
 package com.excd.charmsmod.init;
 
 import com.excd.charmsmod.CharmsMod;
-import com.excd.charmsmod.common.items.WoodenCharmItem;
+import com.excd.charmsmod.common.item.WoodenCharmItem;
 
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;

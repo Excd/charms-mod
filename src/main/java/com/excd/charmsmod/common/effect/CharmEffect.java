@@ -1,8 +1,8 @@
-package com.excd.charmsmod.common.effects;
+package com.excd.charmsmod.common.effect;
 
 import java.util.UUID;
 
-import com.excd.charmsmod.common.items.CharmItem;
+import com.excd.charmsmod.common.item.CharmItem;
 
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
