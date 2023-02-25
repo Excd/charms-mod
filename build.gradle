@@ -5,7 +5,7 @@ plugins {
 }
 
 // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-version = '0.0.0.1'
+version = '0.0.0.2'
 group = 'com.excd.charmsmod'
 archivesBaseName = 'charmsmod'
 
